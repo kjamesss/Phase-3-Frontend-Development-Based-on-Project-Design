@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard | BU Task Planner</title>
+    <link rel="icon" href="img/mark.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/api-placeholder.js" defer></script>
+    <script src="js/ui.js" defer></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header><nav class="navbar navbar-expand-md" aria-label="Main navigation"><div class="container">
+        <a class="navbar-brand" href="index.html"><img src="img/mark.png" width="36" height="36" alt=""> BU Task Planner</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="main-nav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link active" aria-current=page href="dashboard.html">Dashboard</a></li><li class="nav-item"><a class="nav-link"  href="tasks.html">Tasks</a></li><li class="nav-item"><a class="nav-link"  href="profile.html">Profile</a></li><li class="nav-item"><a class="nav-link" href="index.html">Exit demo</a></li></ul></div>
+    </div></nav></header>
+    <main id="main" class="container page " tabindex="-1">
+<div class="page-heading"><div><h1>Dashboard</h1><p>See what’s due next and track your task progress.</p></div><a class="btn btn-primary" href="tasks.html">View all tasks</a></div>
+        <section class="card summary-panel" aria-labelledby="progress-heading">
+            <h2 id="progress-heading">Task progress</h2>
+            <div class="row g-0 summary-grid" id="task-summary"></div>
+        </section>
+        <div class="row g-4 mt-1">
+            <div class="col-lg-7"><section class="card deadline-panel">
+                <h2>Upcoming deadlines</h2><p class="section-note">Incomplete tasks due in the next seven days.</p>
+                <div id="upcoming-list" class="deadline-list"></div>
+            </section></div>
+            <div class="col-lg-5"><section class="card deadline-panel">
+                <h2>Overdue</h2><p class="section-note">Incomplete tasks past their due date.</p>
+                <div id="overdue-list" class="deadline-list"></div>
+            </section></div>
+        </div>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner">
+        <span>Bicol University Polangui</span><span>IT 112 <span aria-hidden="true">·</span> Group 5 <span aria-hidden="true">·</span> Phase 3 prototype</span>
+    </div></footer>
+
+</body>
+</html>
