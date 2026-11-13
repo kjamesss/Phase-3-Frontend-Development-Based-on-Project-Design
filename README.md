@@ -26,4 +26,16 @@ The Phase 1 roles are User (shown as Student) and Administrator. Task status opt
 
 All forms use explicit IDs, named controls, a placeholder action, and a GET or POST method. [api-placeholder.js](frontend/js/api-placeholder.js) is the integration point for future Fetch requests to Express. The API will enforce role and task ownership, validate fields, hash passwords, and manage identifiers and timestamps through Mongoose. Student and admin demos are public previews of fictional data.
 
+Identifiers, ownership references, password hashes, and timestamps are controlled by the future backend. The hidden _id fields identify the selected record in edit and delete dialogs. Category choices use ObjectId-shaped sample references. The empty subject option represents an optional category relationship.
+
+## Review the frontend
+
+1. Open the student demo and follow a deadline link to its matching task.
+2. Combine the keyword, status, priority, and subject filters. Clear filters to restore all six sample tasks.
+3. Open New task, New subject, Edit, and Delete. Required inputs use browser validation. Each submitted action identifies the API connection it needs.
+4. Open the admin demo and inspect account edit/delete dialogs and tasks from both sample students.
+5. Resize to a phone width. Open the collapsed navigation and scroll the administrator tables horizontally.
+
+The verification pass covered all seven pages at desktop and phone widths, navigation, task filters and empty results, form fields, whitespace validation, dialog population, and placeholder feedback. Sample deadlines are relative to the browser's current date. Each member's reflection contains three sentences and follows the role declared in Phase 1.
+
 [Phase 3 report](docs/lab11/Phase-3-Report.pdf) · [Lab screenshots](docs/lab11/)
