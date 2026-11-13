@@ -50,6 +50,14 @@ function showDate(date) {
     return dateFormat.format(new Date(date + 'T00:00:00'));
 }
 
+function deadlineLabel(task) {
+    if (task.status === 'Completed') return 'Completed';
+    if (task.dueDate < dateAt(0)) return 'Overdue';
+    if (task.dueDate === dateAt(0)) return 'Due today';
+    if (task.dueDate === dateAt(1)) return 'Due tomorrow';
+    return 'Upcoming';
+}
+
 function subjectName(task) {
     return categories[task.category]?.name || 'Uncategorized';
 }
@@ -87,7 +95,7 @@ function renderDashboard() {
             '<div class="deadline-item"><div><a href="tasks.html?q=' + encodeURIComponent(task.title) + '">' +
             html(task.title) + '</a><small>' + html(subjectName(task)) + '</small></div><time datetime="' +
             task.dueDate + '" class="deadline-date ' + (late ? 'overdue-date' : '') + '">' +
-            showDate(task.dueDate) + '</time></div>').join('') ||
+            showDate(task.dueDate) + '<small>' + deadlineLabel(task) + '</small></time></div>').join('') ||
             '<p class="empty-state">No ' + (late ? 'overdue tasks.' : 'deadlines in the next seven days.') + '</p>';
     }
     showDeadlines('#upcoming-list', upcoming, false);
@@ -111,14 +119,15 @@ function renderTaskList() {
             (!status || task.status === status) && (!priority || task.priority === priority) &&
             (!category || (task.category || 'uncategorized') === category)).sort(byDate);
 
-        count.textContent = matches.length + (matches.length === 1 ? ' task' : ' tasks');
+        count.textContent = matches.length + ' of ' + myTasks.length + ' tasks';
         list.innerHTML = matches.map(task => {
             const subject = categories[task.category];
             return '<article class="task-row" data-task="' + task._id + '"><div><h3>' + html(task.title) +
                 '</h3><div class="task-subject">' +
                 (subject ? '<span class="subject-dot" style="background:' + subject.color + '" aria-hidden="true"></span>' : '') +
                 html(subjectName(task)) + '</div><p>' + html(task.description) + '</p></div><div><time datetime="' +
-                task.dueDate + '">' + showDate(task.dueDate) + '</time><p>' + priorityText(task.priority) +
+                task.dueDate + '">' + showDate(task.dueDate) + '</time><small class="deadline-hint ' +
+                (deadlineLabel(task) === 'Overdue' ? 'overdue-date' : '') + '">' + deadlineLabel(task) + '</small><p>' + priorityText(task.priority) +
                 '</p></div><div>' + statusChip(task.status) + '</div><div class="action-row">' +
                 action('Edit task', 'edit-task', task._id) + action('Delete task', 'delete-task', task._id, 'danger') +
                 '</div></article>';
