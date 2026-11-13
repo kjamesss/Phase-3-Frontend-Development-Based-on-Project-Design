@@ -29,7 +29,7 @@ h1, h2 { font-weight: 750; letter-spacing: -.028em; }
 h1 { font-size: clamp(2.15rem, 5vw, 3.35rem); line-height: 1.08; }
 h2 { font-size: 1.34rem; }
 .btn { font-weight: 650; padding: .58rem .92rem; border-radius: .48rem; }
-.btn-sm { padding: .35rem .65rem; }
+.btn-sm { padding: .45rem .7rem; min-height: 38px; }
 .btn-primary { --bs-btn-bg: var(--brand); --bs-btn-border-color: var(--brand); --bs-btn-hover-bg: var(--brand-dark); --bs-btn-hover-border-color: var(--brand-dark); --bs-btn-active-bg: var(--brand-dark); --bs-btn-active-border-color: var(--brand-dark); }
 .btn-outline-primary { --bs-btn-color: var(--brand-dark); --bs-btn-border-color: #83aaa1; --bs-btn-hover-bg: var(--brand-dark); --bs-btn-hover-border-color: var(--brand-dark); --bs-btn-active-bg: var(--brand-dark); --bs-btn-active-border-color: var(--brand-dark); }
 .btn-link { color: var(--brand-dark); }
@@ -47,6 +47,14 @@ h2 { font-size: 1.34rem; }
 .demo-strip p, .page-heading p { margin-bottom: 0; }
 .page-heading { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem 1.5rem; margin-bottom: 1.7rem; }
 .page-heading h1 { margin-bottom: .5rem; }
+.page-heading p { max-width: 65ch; }
+.deadline-hint { display: block; font-size: .79rem; color: var(--muted); margin: .15rem 0; }
+.deadline-hint.overdue-date { color: #982c2c; font-weight: 650; }
+.deadline-date small { color: inherit; }
+.task-row:hover { background: #f6faf8; }
+.task-row:focus-within { background: #edf6f1; }
+.table tbody tr:hover { --bs-table-bg: #f6faf8; }
+.form-feedback:focus { outline-offset: 3px; }
 .card { border: 1px solid var(--line); border-radius: .9rem; }
 .auth-card, .form-panel, .summary-panel, .deadline-panel, .task-panel { padding: clamp(1.2rem, 3vw, 1.75rem); }
 .auth-card { padding: clamp(1.3rem, 4vw, 2.4rem); }
